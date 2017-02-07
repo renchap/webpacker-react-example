@@ -18,6 +18,6 @@
     "webpack": "beta",
     "webpack-dev-server": "beta",
     "webpack-merge": "^2.6.1",
-    "webpacker-react": "~>0.0.3"
+    "webpacker-react": "~>0.0.4"
   }
 }
