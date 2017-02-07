@@ -12,12 +12,10 @@ function configureHotMobuleReplacement(config)
         publicPath: webpackDevServerAddr // necessary for HMR to know where to load the hot update chunks
       },
       devServer: {
-        hot: true,
         contentBase: path.resolve('..', 'public', 'packs'),
         publicPath: webpackDevServerAddr
       },
       plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
       ]
     }
@@ -34,8 +32,6 @@ function configureHotMobuleReplacement(config)
   for (let key of Object.keys(config.entry)) {
     config.entry[key] = [
        'react-hot-loader/patch',
-       `webpack-dev-server/client?${webpackDevServerAddr}`,
-       'webpack/hot/only-dev-server',
        config.entry[key]
      ]
   }

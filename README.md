@@ -29,6 +29,12 @@ $ ./bin/rails server
 
 Finally open http://localhost:3000/ in your browser.
 
+## Hot module replacement
+
+```
+./bin/webpack-dev-server --hot
+```
+
 ## Contents
 
 ### [Hello: Sample React component](app/javascript/components/hello.jsx)
