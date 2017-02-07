@@ -7,14 +7,16 @@ class Hello extends React.Component {
   }
 
   incrementCount() {
-    this.setState({count: this.state.count+1})
+    this.setState({count: this.state.count+5})
   }
 
   render() {
     return <div>
-             Hello, I am {this.props.name} my sate is: {this.state.count}! <button onClick={() => this.incrementCount()}>increment</button>
+             Hello, I am {this.props.name} version is {Hello.version} my sate is: {this.state.count}! <button onClick={() => this.incrementCount()}>increment</button>
            </div>
   }
 }
+
+Hello.version = 17;
 
 export default Hello;
