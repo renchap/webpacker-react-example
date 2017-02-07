@@ -3,33 +3,12 @@
 var path    = require('path')
 var webpack = require('webpack')
 var merge   = require('webpack-merge')
+var configureHotModuleReplacement = require('./configure-hot-module-replacement')
 
 var config = require('./shared.js')
 
-let enableHotModuleReload = true;
-if (enableHotModuleReload) {
-  let webpackDevServerAddr = 'http://localhost:8080/'
-  config = merge(
-    config,
-    {
-      output: {
-        publicPath: webpackDevServerAddr // necessary for HMR to know where to load the hot update chunks
-      },
-      devServer: {
-        hot: true,
-        contentBase: path.resolve('..', 'public', 'packs'),
-        publicPath: webpackDevServerAddr
-      },
-      plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
-      ]
-    }
-  )
-
-  for (let key of Object.keys(config.entry)) {
-    config.entry[key] = ['react-hot-loader/patch',`webpack-dev-server/client?${webpackDevServerAddr}`,'webpack/hot/only-dev-server',config.entry[key]]
-  }
+if (true) {
+  config = configureHotModuleReplacement(config);
 }
 
 module.exports = merge(config, {
